@@ -21,7 +21,7 @@ PythonのFlaskフレームワークとSQLiteを使用した、階層構造型掲
 
 ## 📂 構成
 
-```text`
+```text
 .
 ├── app.py              # メインアプリケーション（全ロジック・DB定義）
 ├── requirements.txt    # 依存ライブラリ一覧
@@ -33,17 +33,19 @@ PythonのFlaskフレームワークとSQLiteを使用した、階層構造型掲
 │   ├── thread.html     # 投稿・返信画面
 │   └── register.html   # ログイン・ユーザー登録
 └── README.md
-
+```
 
 ## ⚙️ セットアップと実行方法
 1. ライブラリのインストール
 ターミナルで以下のコマンドを実行して、必要なパッケージをインストールします。
 
-```Bash`
+```Bash
 pip3 install -r requirements.txt
+```
 2. アプリケーションの実行
-```Bash`
+```Bash
 python3 app.py
+```
 実行後、ブラウザで http://127.0.0.1:5000 にアクセスしてください。
 
 3. 初期データ
