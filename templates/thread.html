@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ thread.title }}</h3>
+{% for post in thread.posts %}
+<div class="card mb-2">
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">ID: {{ post.id }} | {{ post.user_name }} | {{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</h6>
+        <p class="card-text">{{ post.content }}</p>
+        {% if post.parent_id %}<small class="text-info">>> ID: {{ post.parent_id }} への返信</small>{% endif %}
+    </div>
+</div>
+{% endfor %}
+<hr>
+<form method="post">
+    <div class="mb-3">
+        <input type="number" name="parent_id" class="form-control mb-2" placeholder="返信先ID (任意)">
+        <textarea name="content" class="form-control mb-2" placeholder="本文を入力" required></textarea>
+        <button type="submit" class="btn btn-success">投稿する</button>
+    </div>
+</form>
+{% endblock %}

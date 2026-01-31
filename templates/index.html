@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>カテゴリ一覧</h2>
+<div class="list-group">
+    {% for board in boards %}
+    <a href="{{ url_for('view_board', board_id=board.id) }}" class="list-group-item list-group-item-action">
+        {{ board.title }}
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="/">Home</a></li><li class="breadcrumb-item active">{{ board.title }}</li></ol></nav>
+<h3>{{ board.title }}のスレッド</h3>
+<div class="card mb-4"><div class="card-body">
+    <form action="{{ url_for('create_thread', board_id=board.id) }}" method="post">
+        <input type="text" name="title" class="form-control mb-2" placeholder="スレッドタイトル" required>
+        <textarea name="content" class="form-control mb-2" placeholder="最初の投稿" required></textarea>
+        <button type="submit" class="btn btn-primary">スレッド作成</button>
+    </form>
+</div></div>
+<div class="list-group">
+    {% for thread in board.threads %}
+    <a href="{{ url_for('view_thread', thread_id=thread.id) }}" class="list-group-item list-group-item-action">
+        {{ thread.title }} <small class="text-muted">({{ thread.created_at.strftime('%Y-%m-%d %H:%M') }})</small>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
